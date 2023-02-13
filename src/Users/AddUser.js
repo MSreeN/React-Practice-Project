@@ -4,7 +4,7 @@ import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 
-function AddUser() {
+function AddUser(props) {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredUserAge,setEnteredUserAge] = useState('');
   const [isValid, setIsValid] = useState(true)
@@ -18,9 +18,11 @@ function AddUser() {
       setIsValid(false);
       return;
     }
+    props.onAddUser(enteredUsername, enteredUserAge);
     setEnteredUsername('');
     setEnteredUserAge('');
     console.log(enteredUserAge, enteredUsername);
+
   }
 
   function usernameChangeHandler(e){
