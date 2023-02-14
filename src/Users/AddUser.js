@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
 
 function AddUser(props) {
   const [enteredUsername, setEnteredUsername] = useState('');
@@ -49,7 +50,7 @@ function AddUser(props) {
   }
 
   return (
-    <div>
+    <Wrapper>
     {error && <ErrorModal closeModal = {errorHandler} title = {error.title} message = {error.message}/>}
     <Card className={classes.input}>
       <form  onSubmit={addUserHandler}>
@@ -59,7 +60,7 @@ function AddUser(props) {
         <input style={{borderColor : !isValid? "red":""}} type="number" name="" value={enteredUserAge} onChange={userAgeChangeHandler}/>
         <Button type = "submit">AddUser</Button>
       </form>
-    </Card></div>
+    </Card></Wrapper>
   );
 }
 
